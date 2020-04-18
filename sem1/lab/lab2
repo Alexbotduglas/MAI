@@ -1,0 +1,159 @@
+178059@client18:~$ whoami
+178059
+
+178059@client18:~$ ruptime
+Lubuntu     down      15:25
+cameron       up       0:16,     1 user,   load 0.32, 0.41, 0.27
+client01    down      15:28
+client02      up       0:40,     2 users,  load 0.00, 0.11, 0.29
+client04    down      20:12
+client05      up       1:10,     0 users,  load 0.05, 0.19, 0.39
+client06      up       1:07,     0 users,  load 0.14, 0.10, 0.13
+client07      up       0:28,     1 user,   load 0.05, 0.16, 0.34
+client18      up       0:43,     1 user,   load 0.28, 0.56, 0.42
+client19      up       0:49,     1 user,   load 0.81, 0.41, 0.51
+client20      up       1:10,     1 user,   load 0.20, 0.16, 0.19
+client21      up       0:13,     1 user,   load 0.08, 0.14, 0.17
+client22      up       0:49,     1 user,   load 0.46, 0.27, 0.20
+client23    down      15:27
+dell        down    1+19:23
+kuantan     down    1+20:25
+
+178059@client18:~$ ls
+Kp     Документы  Изображения  Общедоступные  Шаблоны
+Видео  Загрузки   Музыка       Рабочий стол
+
+178059@client18:~$ pwd
+/stud/178059
+
+178059@client18:~$ date
+Tue 12 Sep 14:49:20 AWST 2017
+
+178059@client18:~$ uname
+Linux
+
+178059@client18:~$ tty
+/dev/pts/0
+ 178059@client18:~$ uptime
+ 14:56:01 up 59 min,  1 user,  load average: 0.13, 0.17, 0.25
+
+178059@client18:~/lab2$ cat >f
+1+4=8
+
+178059@client18:~$ bc
+bc 1.06.95
+Copyright 1991-1994, 1997, 1998, 2000, 2004, 2006 Free Software Foundation, Inc.
+This is free software with ABSOLUTELY NO WARRANTY.
+For details type `warranty'. 
+
+178059@client18:~$ ps
+  PID TTY          TIME CMD
+ 4247 pts/2    00:00:00 bash
+ 4310 pts/2    00:00:00 ps
+178059@client18:~/lab2$ cat >wq
+3-4=-1
+
+178059@client18:~$ who
+178059    tty7         2017-09-14 14:30 (:0)
+
+178059@client18:~$ hostname
+client18
+
+178059@client18:~$ uname -a
+Linux client18 4.10.0-35-generic #39~16.04.1-Ubuntu SMP Wed Sep 13 09:02:25 UTC 2017 i686 i686 i686 GNU/Linux
+
+
+178059@client18:~$ rwho
+178057   client04:tty7 Sep 26 13:48 :06
+178059   client18:tty7 Sep 26 13:49 :06
+178064   client01:tty7 Sep 26 13:48 :06
+178074   client19:tty7 Sep 26 13:49 :06
+
+178059@client18:~$ ls -l
+total 276
+-rw-r--r-- 1 178059 1060 237509 Sep 26 14:30 2017-09-26-143016_1280x1024_scrot.png
+-rw-r--r-- 1 178059 1060      6 Sep 12 15:36 f
+-rw-r--r-- 1 178059 1060      0 Sep 12 14:59 f3
+-rw-r--r-- 1 178059 1060      3 Sep 12 14:58 file1
+drwxr-xr-x 2 178059 1060   4096 Sep  5 16:51 Kp
+drwxr-xr-x 2 178059 1060   4096 Sep  5 15:19 Видео
+drwxr-xr-x 2 178059 1060   4096 Sep  5 15:19 Документы
+drwxr-xr-x 2 178059 1060   4096 Sep 26 15:26 Загрузки
+drwxr-xr-x 2 178059 1060   4096 Sep  5 15:19 Изображения
+drwxr-xr-x 2 178059 1060   4096 Sep  5 15:19 Музыка
+drwxr-xr-x 2 178059 1060   4096 Sep  5 15:19 Общедоступные
+drwxr-xr-x 2 178059 1060   4096 Sep 12 14:38 Рабочий стол
+drwxr-xr-x 2 178059 1060   4096 Sep  5 15:19 Шаблоны
+
+
+178059@client18:~$ bc -lq
+ibase=16
+obase=2
+11
+10001
+obase=8
+11
+21
+12
+22
+obase=A
+2
+2
+ibase=2
+obase=1000
+100
+4
+obase=1010
+101
+5
+obase=10000
+111
+7
+110
+6
+ibase=1000
+obase=2
+4
+100 
+obase=12
+111
+73
+obase=20
+14
+C
+ibase=12
+obase=2
+6
+110
+obase=8
+9
+11
+obase=16
+12
+C
+11
+B
+
+178059@client18:~$ ls -F
+Kp/     Документы/  Изображения/  Общедоступные /  Шаблоны/
+Видео/  Загрузки/   Музыка/       Рабочий стол/
+
+178059@client18:~$ cd /stud/178059/lab2
+178059@client18:~/lab2$ pwd/stud/178059
+
+178059@client18:~/lab2$ pwd
+/stud/178059/lab2
+
+178059@client18:~/lab2$ cd ..
+178059@client18:~$ pwd
+/stud/178059
+ 
+178059@client18:~/lab2$ cat >file2
+lfdkldsif
+178059@client18:~/lab2$ ls
+file2
+178059@client18:~/lab2$ cat file2
+lfdkldsif
+
+
+
