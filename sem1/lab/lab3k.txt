@@ -1,0 +1,290 @@
+178059@client18:~$ ping client18
+PING client18 (127.0.1.1) 56(84) bytes of data.
+64 bytes from client18 (127.0.1.1): icmp_seq=1 ttl=64 time=0.099 ms
+
+64 bytes from client18 (127.0.1.1): icmp_seq=2 ttl=64 time=0.093 ms
+
+64 bytes from client18 (127.0.1.1): icmp_seq=3 ttl=64 time=0.086 ms
+
+64 bytes from client18 (127.0.1.1): icmp_seq=4 ttl=64 time=0.090 ms
+
+64 bytes from client18 (127.0.1.1): icmp_seq=5 ttl=64 time=0.089 ms
+
+64 bytes from client18 (127.0.1.1): icmp_seq=6 ttl=64 time=0.088 ms
+
+64 bytes from client18 (127.0.1.1): icmp_seq=7 ttl=64 time=0.090 ms
+
+64 bytes from client18 (127.0.1.1): icmp_seq=8 ttl=64 time=0.092 ms
+
+64 bytes from client18 (127.0.1.1): icmp_seq=9 ttl=64 time=0.090 ms
+
+64 bytes from client18 (127.0.1.1): icmp_seq=10 ttl=64 time=0.089 ms
+
+64 bytes from client18 (127.0.1.1): icmp_seq=11 ttl=64 time=0.091 ms
+
+64 bytes from client18 (127.0.1.1): icmp_seq=21 ttl=64 time=0.090 ms
+
+64 bytes from client18 (127.0.1.1): icmp_seq=22 ttl=64 time=0.091 ms
+
+64 bytes from client18 (127.0.1.1): icmp_seq=23 ttl=64 time=0.090 ms
+
+64 bytes from client18 (127.0.1.1): icmp_seq=24 ttl=64 time=0.092 ms
+
+64 bytes from client18 (127.0.1.1): icmp_seq=25 ttl=64 time=0.090 ms
+^C
+--- client18 ping statistics ---
+25 packets transmitted, 25 received, 0% packet loss, time 24576ms
+
+rtt min/avg/max/mdev = 0.078/0.089/0.099/0.013 ms
+
+groups: cannot find name for group ID 1060
+
+178059@client19:~$ ssh client19
+178059@client19's password: 
+Welcome to Ubuntu 17.04 (GNU/Linux 4.10.0-19-generic i686)
+
+Last login: Tue Oct  3 10:10:20 2017 from 192.168.2.54
+groups: cannot find name for group ID 1060
+
+178059@client19:~$ exit
+logout
+Connection to client19 closed.
+
+178059@client18:~$ rlogin client19
+178059@client19's password: 
+Welcome to Ubuntu 17.04 (GNU/Linux 4.10.0-19-generic i686)
+
+groups: cannot find name for group ID 1060
+
+178059@client19:~$ ls
+
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+
+178059@client19:~$ pwd
+/stud/178059
+
+178059@client19:~$ tty
+/dev/pts/1
+
+178059@client19:~$ whoami
+178059
+
+178059@client19:~$ exit
+logout
+Connection to client19 closed.
+
+178059@client18:~$ ssh client19 ls
+178059@client19's password:
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+
+178059@client19:~$ ssh client19 uptime
+178059@client19's password: 
+ 10:38:32 up  2:52,  3 users,  load average: 0.43, 0.65, 0.54
+
+178059@client18:~$ ssh-keygen -t dsa
+
+Generating public/private dsa key pair.
+Enter file in which to save the key (/stud/178059/.ssh/id_dsa): 
+/stud/178059/.ssh/id_dsa
+
+Enter passphrase (empty for no passphrase): 
+
+Enter same passphrase again: 
+
+Your identification has been saved in /stud/178059/.ssh/id_dsa.
+
+Your public key has been saved in /stud/178059/.ssh/id_dsa.pub.
+
+The key fingerprint is:
+SHA256:3CU680pgORFmEPRYsoERl42iB1wfanSSxcWpRe6CpAA 178059@client18
+
+The key's randomart image is:
++---[DSA 1024]----+
+|E +O@XOo.        |
+|o.+oB@+=         |
+|.o =o.=.  . .    |
+|o = ...+ o o     |
+| o . .=.S .      |
+|     ..o +       |
+|        . .      |
+|       . .       |
+|        .        |
++----[SHA256]-----+
+
+178059@client18:~$ ssh client19 'cat >>.ssh/authorized_keys' <.ssh/id_dsa.pub
+178059@client19's password: 
+
+178059@client18:~$ scp file client19:tmp
+178059@client19's password: 
+file                                          100%    6     0.3KB/s   
+00:00    
+
+178059@client18:~$ ssh client19 cat >file1
+178059@client19's password: 
+algim
+
+178059@client18:~$ ssh client19 ls
+178059@client19's password: 
+
+Desktop  
+Documents  
+Downloads  file  file1 Music  Pictures  Public  Templates  Videos
+
+178059@client18:~$ scp client19:~/file1 .
+178059@client19's password: 
+file1                                         100%    6     0.3KB/s  
+00:00 
+
+178059@client18:~$ ls
+Desktop  Documents  Downloads  file  file1 Music  Pictures  Public  Templates  Videos
+
+178059@client18:~$ mkdir dir1
+
+178059@client18:~$ mv file file1 dir1
+
+178059@client18:~$ scp -r dir1 client19
+
+178059@client19's password:
+file                                                  100%   17     0.9KB/s   00:00    
+
+file1                                                 100%    8     0.5KB/s   00:00    
+ 
+178059@client18:~$ ssh client19 mkdir dir2 
+
+178059@client19's password: 
+
+178059@client18:~$ scp -r client19:dir2 .
+
+178059@client19's password: 
+
+178059@client18:~$ ls
+
+Desktop  dir1  dir2  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+
+
+178059@client18:~$ scp client19:`pwd`/file file2
+
+178059@client19's password:
+ 
+file                                                100%    9     0.5KB/s   00:00    
+
+
+178059@client18:~$ ls dir -l
+
+total 8
+
+-rw-r--r-- 1 178059 1060 17 Sep 29 09:29 file
+
+-rw-r--r-- 1 178059 1060  8 Sep 29 09:29 file1
+
+
+
+178059@client18:~$ tar -cf dir.tar dir
+
+178059@client18:~$ ls dir.tar -l
+
+-rw-r--r-- 1 178059 1060 10240 Sep 26 10:36 dir.tar
+
+178059@client18:~$ tar -tvf dir.tar
+
+drwxr-xr-x 178059/1060       0 2017-10-03 09:07 dir/
+
+-rw-r--r-- 178059/1060      17 2017-10-03 09:29 dir/file
+
+-rw-r--r-- 178059/1060       8 2017-10-03 09:29 dir/file1
+
+178059@client18:~$ ls
+
+Desktop  dir.tgz  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+
+
+178059@client18:~$ gzip -d -c dir.tgz > dir.tar
+
+178059@client18:~$ ls
+
+Desktop  dir.tar  dir.tgz  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+
+
+178059@client18:~$ tar -xf dir.tar
+
+178059@client18:~$ ls
+
+Desktop  dir  dir.tar  dir.tgz  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+
+178059@client18:~$ pax -w dir > dir.pax
+
+
+178059@client18:~$ ls dir.pax -l
+
+-rw-r--r-- 1 178059 1060 10240 Oct  3 07:55 dir.pax
+
+178059@client18:~$ pax < dir.pax
+
+dir
+
+dir/file
+
+dir/file1
+
+178059@client18:~$ gzip -9 -c dir.tar > dir.tgz
+
+
+178059@client18:~$ ls dir.tgz -l
+
+-rw-r--r-- 1 178059 1060 188 Oct 3 10:38 dir.tgz
+
+
+
+178059@client18:~$ rm *.tar | rm *pax
+
+178059@client18:~$ cd /stud/178059/dir
+
+178059@client18:~/dir$ rm f*
+
+178059@client18:~/dir$ cd ..
+
+178059@client18:~$ rmdir dir
+
+178059@client18:~$ ls
+
+Desktop  dir.tgz  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+
+
+178059@client18:~$ gzip -d -c dir.tgz > dir.tar
+
+178059@client18:~$ pax -r < dir.pax
+
+178059@client18:~$ ls
+
+Desktop  dir  dir.pax  dir.tgz Documents  Downloads  Music  Pictures  Public  Templates  Videos
+
+
+178059@client18:~$ cat >file
+
+ffkkaйffkk
+
+178059@client18:~$ cat file
+
+ffkkaйffkk
+
+
+178059@client18:~$ iconv -c -f utf-8 -t cp1251 file > file2
+
+178059@client18:~$ cat file2
+
+ffkkaйffkk
+
+178059@client18:~$ iconv -c -f cp1251 -t utf-8 file2 > file3
+
+178059@client18:~$ cat file3
+
+ffkkaйffkk
+
+
+
+
+
+
+
+
+
